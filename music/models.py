@@ -1,5 +1,5 @@
 from django.db import models
-#Ex: the album 'Red' has pk '1'
+
 
 class Album(models.Model):
     artist = models.CharField(max_length=250)
@@ -14,7 +14,6 @@ class Song(models.Model):
     album = models.ForeignKey(Album, on_delete=models.CASCADE) #whenever we delete an album, any songs that were linked are deleted as well.
     file_type = models.CharField(max_length=10)
     song_title = models.CharField(max_length=250)
-    is_favorite = models.BooleanField(default=False)
 
     def __str__(self):
         return self.song_title
